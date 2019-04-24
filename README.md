@@ -26,3 +26,8 @@
     - An employee can join , leave and again join a company; Shows status for the employee for all the times he leaves and joins a company       which is necessay for traking the history of employement of the company.
     - An employee can't join another company until he leaves his current company.
     - Natural timmings used like used in social media sites.
+
+### Setup
+      - Clone the project
+      - pip install -r requirements.txt
+      - py manage.py runserver
