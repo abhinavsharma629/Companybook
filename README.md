@@ -17,7 +17,7 @@
           - Company dashboard is public
 
 ### Additional Features to be implemented
-    - PostgreSql can also be used if used for wide purposes.
+    - PostgreSql can also be used if used for wide purposes.(It was used but i have commented it out for now)
     - Upload Profile Pictures
     - Change Password
     - Social Authentication
