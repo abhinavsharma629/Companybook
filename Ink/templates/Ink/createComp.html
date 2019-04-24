@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block body %}
+  <br><br>
+  <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px; margin: auto; text-align: center; font-family: arial;">
+    <img src="http://robohash.org/sitsequiquia.png?size=120x120" alt="{{company.name.first_name}}" style="width:100%">
+    <br>
+    <a href="/register" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-plus-sign">Create Company</span> </a>
+    <h1><b>{{company.name.first_name}}</b></h1>
+    <p class="title" style="color: grey; font-size: 18px;">Company</p>
+    <p><b>{{company.name}}</b></p>
+
+    <p><button class="btn btn-info">Contact</button></p>
+  </div>
+<script type="text/javascript">
+    var n=document.getElementById('1');
+  console.log("yes");
+  console.log(n);
+  n.innerHTML="Create Company";
+  n.setAttribute('href', '/createComp');
+
+  var n=document.getElementById('2');
+  console.log("yes");
+  console.log(n);
+  n.innerHTML="See Your Companies";
+  n.setAttribute('href', '/ownComp');
+  </script>
+{% endblock %}

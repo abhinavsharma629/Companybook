@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block body %}
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Company</th>
+      <th scope="col">Joined</th>
+      <th scope="col">Left</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for i in history %}
+    {% for j in i.companiesAppliedToHistory.all %}
+    <tr>
+      <td><a href="/compnayProfile/{{j.company}}">{{j.company}}</a></td>
+      {% for k in date %}
+      {% if k.cmp_id.cmp_id == j.cmp_id %}
+      <td>{{k.created| naturaltime}}</td>
+      <td>{{k.left| naturaltime}}</td>
+      {% endif %}
+      {% endfor %}
+      
+    </tr>
+    {% endfor %} 
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,49 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	{% block head %}
+	<title>Base</title>
+	{% endblock %}
+</head>
+<body>
+	<br>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Social Network</a>
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+     {% if user.is_authenticated %}
+     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " href="/logout">Logout</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " href="/profile">Profile</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " id= "1" href="#">Edit Profile</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " id="2" href="#">Change Password</a>
+      </li>
+    </ul>
+
+    {% else %}
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Login</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="/register">Register</a>
+      </li>
+    </ul>
+    {% endif %}
+
+  </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+</body>
+</html>

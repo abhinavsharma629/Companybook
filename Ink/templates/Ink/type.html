@@ -1,0 +1,109 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href={% static 'Ink/images/icons/favicon.ico' %} />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/vendor/bootstrap/css/bootstrap.min.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+	href={% static 'Ink/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+	href={% static 'Ink/fonts/iconic/css/material-design-iconic-font.min.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/vendor/animate/animate.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/vendor/css-hamburgers/hamburgers.min.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/vendor/animsition/css/animsition.min.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/vendor/select2/select2.min.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/vendor/daterangepicker/daterangepicker.css' %}>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/css/util.css' %}>
+	<link rel="stylesheet" type="text/css" href={% static 'Ink/css/main.css' %}>
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/static/Ink/images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form method="POST" action="/type/{{username}}">
+					{% csrf_token %}
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+					<span class="login100-form-title p-b-34 p-t-27">
+						What Type Of User Are You??
+					</span>
+					<div class="container">
+						<div id="div_id_name" class="form-group">
+							<label for="id_name" class="control-label  requiredField">
+								Username<span class="asteriskField">*</span> </label> 
+								<div class="controls ">
+									<input type="text" name="name" maxlength="150" autofocus="" class="textinput textInput form-control" required="" id="id_name" readonly=""> 
+								</div>
+							</div>
+							<div id="div_id_typ" class="form-group">
+								<label for="id_typ" class="control-label  requiredField">
+									Typ<span class="asteriskField">*</span> </label> 
+									<div class="controls ">
+										<select name="typ" class="select form-control" id="id_typ">
+											<option value="">----</option>
+											<option value="employee">employee</option>
+											<option value="company">company</option>
+										</select>
+									</div>
+								</div>
+								<div class="container-login100-form-btn">
+									<button class="login100-form-btn">
+										Submit
+									</button>
+								</div>
+								<b>
+									<div class="text-center p-t-40" style="font-size: 15px;">
+										Developer :- Abhinav Sharma
+										<a href="https://www.facebook.com/abhinav.sharma.16906" class="fa fa-facebook"></a>
+									</div>
+								</b>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div id="dropDownSelect1"></div>
+
+			<!--===============================================================================================-->
+			<script src={% static 'Ink/vendor/jquery/jquery-3.2.1.min.js' %}></script>
+			<!--===============================================================================================-->
+			<script src={% static 'Ink/vendor/animsition/js/animsition.min.js' %}></script>
+			<!--===============================================================================================-->
+			<script src={% static 'Ink/vendor/bootstrap/js/popper.js' %}></script>
+			<script src={% static 'Ink/vendor/bootstrap/js/bootstrap.min.js' %}></script>
+			<!--===============================================================================================-->
+			<script src={% static 'Ink/vendor/select2/select2.min.js' %}></script>
+			<!--===============================================================================================-->
+			<script src={% static 'Ink/vendor/daterangepicker/moment.min.js' %}></script>
+			<script src={% static 'Ink/vendor/daterangepicker/daterangepicker.js' %}></script>
+			<!--===============================================================================================-->
+			<script src={% static 'Ink/vendor/countdowntime/countdowntime.js' %}></script>
+			<!--===============================================================================================-->
+			<script src={% static 'Ink/js/main.js' %}></script>
+
+			<script type="text/javascript">
+				document.getElementById('id_name').value="{{username}}";
+			</script>
+		</body>
+
+		</html>

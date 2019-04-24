@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href={% static 'Ink/css/company.css' %}>
+{% endblock %}
+{% block body %}
+
+<section class="container">
+  <div class="left-half div1">
+    <h1>Present Employees</h1>
+      <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Employee Name</th>
+      <th scope="col">Employee Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in cmpDetail %}
+    {% for j in i.currentEmployees.all %}
+     
+    <tr>
+     
+     {% for k in date %}
+
+      {% if k.left == None or currDate < k.left %}
+      <td>{{j.employee}}</td>
+      <td>{{j.emp_id}}</td>
+      {% endif %}
+      {% endfor %}
+
+    </tr>
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+  <div class="right-half div1">
+    <h1>Past Employees</h1>
+      <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Employee Name</th>
+      <th scope="col">Employee Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in cmpDetail %}
+    {% for j in i.currentEmployees.all %}
+     
+    <tr>
+     
+     {% for k in date %}
+
+      {% if k.left and currDate > k.left %}
+      <td>{{j.employee}}</td>
+      <td>{{j.emp_id}}</td>
+      {% endif %}
+      {% endfor %}
+
+    </tr>
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+  </div>
+</section>
+	
+{% endblock %}

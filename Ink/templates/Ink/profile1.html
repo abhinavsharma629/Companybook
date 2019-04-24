@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block body %}
+<br>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Company</th>
+      <th scope="col">Joined</th>
+      <th scope="col">Left</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for i in history %}
+    <tr>
+      <td><a href="/compHome/{{i.cmp_id.company}}">{{i.cmp_id.company.first_name}}</a></td>
+      <td>{{i.created| naturaltime}}</td>
+      {% if i.left == None %}
+        <td><b>Still Working</b></td>
+      {% else %}
+        <td>{{i.left| naturaltime}}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<script type="text/javascript">
+    var n=document.getElementById('1');
+  console.log("yes");
+  console.log(n);
+  n.innerHTML="Create Company";
+  n.setAttribute('href', '/createComp');
+
+  var n=document.getElementById('2');
+  console.log("yes");
+  console.log(n);
+  n.innerHTML="See Your Companies";
+  n.setAttribute('href', '/ownComp');
+  </script>
+{% endblock %}
